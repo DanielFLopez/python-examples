@@ -67,6 +67,22 @@ class BinaryTree:
             self.postorder(node.right)
             print(node.value)
 
+    def height(self, node):
+        height = 0
+        if node == None:
+            return height
+        else:
+            left = self.height(node.left)
+            right = self.height(node.right)
+            print("value left: ", left, "value right: ", right)
+            if left > right:
+                height = left + 1
+            else:
+                height = right + 1
+        return height
+
+
+
 
 tree = BinaryTree()
 tree.root = tree.insert(tree.root, 15)
@@ -82,6 +98,7 @@ tree.root = tree.insert(tree.root, 47)
 tree.root = tree.insert(tree.root, 29)
 tree.root = tree.insert(tree.root, 20)
 tree.root = tree.insert(tree.root, 68)
+tree.root = tree.insert(tree.root, 19)
 
 print("tree root: ", tree.root)
 
@@ -99,3 +116,17 @@ print(tree.preorder(tree.root))
 # left -> right -> root
 print("---------------- Postorder search -----------------------------------")
 print(tree.postorder(tree.root))
+
+# height
+print("---------------- height tree ----------------------------------------")
+print(tree.height(tree.root))
+
+
+tree2 = BinaryTree()
+tree2.root = tree2.insert(tree2.root, 3)
+tree2.root = tree2.insert(tree2.root, 1)
+tree2.root = tree2.insert(tree2.root, 4)
+tree2.root = tree2.insert(tree2.root, 2)
+
+print("---------------- height tree2 ---------------------------------------")
+print(tree2.height(tree2.root))
